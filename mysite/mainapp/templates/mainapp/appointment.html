@@ -1,0 +1,10 @@
+{% extends 'mainapp/index.html' %}
+
+{% block form%}
+
+<form action="" method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+</form>
+
+{% endblock form %}

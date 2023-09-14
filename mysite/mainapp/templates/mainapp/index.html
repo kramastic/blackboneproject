@@ -1,0 +1,64 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Барбершоп Москва - мужская парикмахерская</title>
+    <link rel="stylesheet" href="{% static 'mainapp/css/main.css' %}"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="" defer></script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header_container">
+        <div class="header_img">
+          <!-- <div class="header_skull"></div> -->
+          <img src="{% static 'mainapp/images/black_bone_logo_skull.png' %}" alt="" >
+          <img src="{% static 'mainapp/images/black_bone_sign.svg' %}" alt="" >
+        </div>
+        <div class="header_appointment">
+          <a href="http://google.com">
+            <img src="{% static 'mainapp/images/bone_call.svg' %}" alt="" />
+          </a>
+        </div>
+      </div>
+    </header>
+    <section id="main_content" class="main_content">
+      <div class="pricelist_margin">
+        <a href=""></a>
+      </div>
+      <div class="pricelist_container">
+        <table class="pricelist_table">
+          <tbody>
+          {% for s in services %}
+              {% if s.note %}
+                  <tr>
+              <td>{{ s.title }} <small>{{ s.note }}</small></td>
+              <td>{{ s.price }}</td>
+            </tr>
+              {% else %}
+            <tr>
+              <td>{{ s.title }}</td>
+              <td>{{ s.price }}</td>
+            </tr>
+              {% endif %}
+          {% endfor %}
+          </tbody>
+        </table>
+        <p>Временно оплата только наличными</p>
+        <form action="" method="post" class="appointment">
+        {% csrf_token %}
+        {{ form.as_p }}
+          <input type="submit" value='Записаться Онлайн' class="btn pricelist_btn"/>
+        </form>
+      </div>
+    </section>
+  </body>
+</html>
