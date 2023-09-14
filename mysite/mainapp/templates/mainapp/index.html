@@ -13,7 +13,11 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap"
       rel="stylesheet"
     />
-    <script src="" defer></script>
+    <script
+      src="https://kit.fontawesome.com/a6eb112351.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="{% static 'mainapp/js/app.js' %}" defer></script>
   </head>
   <body>
     <header class="header">
@@ -31,9 +35,6 @@
       </div>
     </header>
     <section id="main_content" class="main_content">
-      <div class="pricelist_margin">
-        <a href=""></a>
-      </div>
       <div class="pricelist_container">
         <table class="pricelist_table">
           <tbody>
@@ -52,12 +53,62 @@
           {% endfor %}
           </tbody>
         </table>
-        <p>Временно оплата только наличными</p>
-        <form action="" method="post" class="appointment">
+        <form align='center' action="" method="post" class="formappointment">
         {% csrf_token %}
-        {{ form.as_p }}
-          <input type="submit" value='Записаться Онлайн' class="btn pricelist_btn"/>
+          <p> {{ form.name}}</p>
+          <p> {{ form.number}}</p>
+          <p> {{ form.branch}}</p>
+          <div><input type="submit" value='Записаться Онлайн' class="btn pricelist_btn"/></div>
         </form>
+        <div align='center'><p>Временно оплата только наличными</p></div>
+      </div>
+    </section>
+    <section class="telegram_section">
+      <div class="telegram_container">
+        <div class="telegram">
+          <img src="{% static 'mainapp/images/beard.png' %}" alt="" />
+          <div class="telegram_text">
+            <p>
+              Подписывайтесь на наш <a href="http://telegram.com">Телеграм</a> канал,
+              там бесплатные стрижки и подарки
+            </p>
+          </div>
+        </div>
+        <div class="heshtag_text">
+          <p>
+            Мы устали от сумасшедших цен на МУЖСКИЕ стрижки и решили сделать эту
+            услугу более доступной, вместе с тем, не теряя качество сервиса и
+            уникальной атмосферы! Будь уверен, у нас ты можешь качественно
+            постричься или подровнять бороду, а после оставить свои нервы за PS4
+            или выплеснуть долю тестостерона на боксерской груше. Приходи к нам
+            и почувствуй Черную Кость!
+          </p>
+        </div>
+        <p class="blackhash">#BLACKBONE</p>
+      </div>
+    </section>
+    <section class="gallery">
+      <div class="groups">
+        <div class="group" data-index="0" data-status="active">
+          <div class="img1 card"></div>
+          <div class="img2 card"></div>
+        </div>
+        <div class="group" data-index="1" data-status="unknown">
+          <div class="img3 card"></div>
+          <div class="img4 card"></div>
+        </div>
+        <div class="group" data-index="2" data-status="unknown">
+          <div class="img5 card"></div>
+          <div class="img6 card"></div>
+        </div>
+      </div>
+      <div class="swipers">
+        <button class="button_right">
+          <i class="fa-solid fa-left-long"></i>
+        </button>
+        <button class="button_left">
+          <i class="fa-solid fa-right-long"></i>
+        </button>
       </div>
     </section>
   </body>

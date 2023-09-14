@@ -1,3 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@400;500;700;900&display=swap");
+
+:root {
+  --main-color: #db2c2b;
+  --background-color: #22201e;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -9,8 +16,11 @@
 header {
   box-shadow: #333;
 }
+small {
+  font-size: 11px;
+}
 .header_container {
-  background-color: #db2c2b;
+  background-color: var(--main-color);
   display: flex;
   justify-content: space-between;
   height: 10vh;
@@ -29,38 +39,270 @@ header {
   margin-left: -30px;
 }
 .main_content {
-  height: fit-content;
+  /* height: 140vh; */
   background: url(../images/bone_hero_img.jpg) no-repeat;
   background-position: top center;
   background-size: contain;
   background-color: #22201e;
   display: grid;
-  align-items: first;
-
+  align-items: center;
   justify-content: center;
 }
-.pricelist_margin {
-  height: 50px;
-}
+
 .pricelist_container {
   max-width: 1000px;
   display: grid;
-  /* align-items: center; */
+  align-items: center;
   /* justify-content: center; */
-  background-color: #333;
+  background-color: #222;
+  margin-top: 10vh;
+  margin-bottom: 10vh;
   width: 700px;
-  height: 80vh;
+  height: 70vh;
   border-radius: 15px;
 }
 .btn {
   background-color: #22201e;
+  /* background-color: transparent; */
   color: #f2f3f4;
-  width: 200px;
-  height: 70px;
-  border: #f2f3f4 solid;
+  width: 290px;
+  height: 65px;
+  letter-spacing: 1px;
+  border: #db2c2b solid 1px;
+  font-weight: 600;
+  font-size: 18px;
+  text-transform: uppercase;
+  margin: auto;
+}
+
+.btn:hover {
+  background-color: #db2c2b;
+  border: #22201e 1px solid;
 }
 .pricelist_table {
-  margin: 20px 40px;
+  margin: 10px 60px 0px 60px;
+  height: 43vh;
+  text-transform: uppercase;
+  font-size: 15px;
+  position: relative;
+  top: 10px;
+  opacity: 0.8;
+  /* letter-spacing: 1px; */
+  line-height: 1.2;
+  font-weight: 500;
+}
+/* .pricelist_table tr:hover {
+  border-bottom: #f2f3f4 1px solid;
+} */
+
+.pricelist_table tr td {
+  text-align: left;
+  /* border-bottom: rgb(192, 184, 184, 0.1) 1px solid; */
 }
 
+.pricelist_table tr td:nth-child(2) {
+  text-align: right;
+  font-weight: 600;
+  font-size: 18px;
+}
 
+.pricelist_container p {
+  margin: 0px auto;
+  position: relative;
+  top: -22px;
+  font-size: 14px;
+  color: rgba(219, 211, 211, 0.8);
+}
+
+.telegram_section {
+  /* display: grid; */
+  /* width: 1000px; */
+  /* height: 30vh; */
+  /* grid-template-columns: 1fr 1fr; */
+  background-color: var(--background-color);
+  /* margin: auto; */
+}
+.telegram_container {
+  /* width: 800px; */
+  margin: auto;
+  display: grid;
+  width: 80vw;
+  height: 45vh;
+  grid-template-rows: auto;
+  justify-content: center;
+  align-items: center;
+  background-color: #333;
+  border-radius: 10px;
+}
+.telegram {
+  background-color: #333;
+  display: grid;
+  z-index: 0;
+  align-items: center;
+  justify-content: center;
+  /* width: 400px; */
+  border-radius: 10px;
+  /* height: 25vh; */
+}
+
+.telegram img {
+  height: 60px;
+  margin: 20px auto;
+  /* padding-top: 10px; */
+}
+
+.telegram_text {
+  padding-bottom: 15px;
+  font-size: 17px;
+  padding: 0px 10px;
+}
+
+.telegram_text a {
+  text-decoration: none;
+  color: #419fd9;
+}
+
+.heshtag_text {
+  display: grid;
+  margin-top: 20px;
+  /* width: 400px; */
+
+  /* height: 30vh;	 */
+  align-items: center;
+  justify-content: center;
+  line-height: 1.4;
+  /* text-justify: inter-cluster; */
+}
+
+.heshtag_text p {
+  text-align: justify;
+  padding: 0px 25px;
+  opacity: 0.9;
+}
+
+.blackhash {
+  text-transform: uppercase;
+  font-size: 22px;
+  font-weight: 600;
+  margin: auto;
+}
+
+/* Галлерея */
+.gallery {
+  height: 70vh;
+  width: 100%;
+  background-color: var(--background-color);
+  display: grid;
+  place-items: center;
+  /* position: relative; */
+}
+.groups,
+.group {
+  width: 45vmin;
+  /* aspect-ratio: 5/7; */
+  margin-top: -20px;
+}
+
+.card {
+  width: 45vmin;
+  height: 45vmin;
+  background-color: #f2f3f4;
+  position: absolute;
+}
+
+.group > .card:nth-child(1) {
+  transform: translateX(-55%);
+  background-color: rgba(219, 211, 211, 0.6);
+}
+.group > .card:nth-child(2) {
+  transform: translateX(55%);
+  background-color: rgba(219, 211, 211, 0.6);
+}
+.img1 {
+  background-image: url(../images/gallery/i1.jpg);
+  background-size: cover;
+}
+.img2 {
+  background-image: url(../images/gallery/i2.jpg);
+  background-size: cover;
+}
+.img3 {
+  background-image: url(../images/gallery/i3.jpg);
+  background-size: cover;
+}
+.img4 {
+  background-image: url(../images/gallery/i4.jpg);
+  background-size: cover;
+}
+.img5 {
+  background-image: url(../images/gallery/i5.jpg);
+  background-size: cover;
+}
+.img6 {
+  background-image: url(../images/gallery/i6.jpg);
+  background-size: cover;
+}
+
+.group[data-status="unknown"] {
+  transform: scale(0);
+}
+.group[data-status="after"] {
+  transform: translateX(50%) scale(0);
+}
+.group[data-status="before"] {
+  transform: translateX(-50%) scale(0);
+}
+.group[data-status="active"] {
+  transition-delay: 300ms;
+}
+
+.swipers {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 0vmin 4vmin;
+  position: relative;
+}
+
+.swipers .button_left {
+  font-size: 2.5vmin;
+  border: 0.4vmin solid rgb(200, 200, 200);
+  border-radius: 100%;
+  color: white;
+  background-color: transparent;
+  height: 7vmin;
+  width: 7vmin;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-800%, -250%);
+}
+.swipers .button_right {
+  font-size: 2.5vmin;
+  border: 0.4vmin solid rgb(200, 200, 200);
+  border-radius: 100%;
+  color: white;
+  background-color: transparent;
+  height: 7vmin;
+  width: 7vmin;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(700%, -250%);
+}
+
+.formline{
+width: 250px;
+padding: 3px 3px;
+margin: 3px 0;
+background-color: #22201e;
+color: #828282;
+border: 1px solid #828282;
+border-radius: 4px
+}
+
+.formappointment {
+margin: 40px;
+}
