@@ -6,6 +6,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Барбершоп Москва - мужская парикмахерская</title>
+    <link rel="stylesheet" href="{% static 'mainapp/css/gallery.css' %}"/>
     <link rel="stylesheet" href="{% static 'mainapp/css/main.css' %}"/>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -88,6 +89,7 @@
       </div>
     </section>
     <section class="gallery">
+      <div class="gallery_text"><h2>Работы Наших Мастеров</h2></div>
       <div class="groups">
         <div class="group" data-index="0" data-status="active">
           <div class="img1 card"></div>
@@ -104,11 +106,64 @@
       </div>
       <div class="swipers">
         <button class="button_right">
-          <i class="fa-solid fa-left-long"></i>
-        </button>
-        <button class="button_left">
           <i class="fa-solid fa-right-long"></i>
         </button>
+        <button class="button_left">
+          <i class="fa-solid fa-left-long"></i>
+        </button>
+      </div>
+      <div class="gallery_points">
+        <div class="point" data-status="active" data-index="0"></div>
+        <div class="point" data-status="unknown" data-index="1"></div>
+        <div class="point" data-status="unknown" data-index="2"></div>
+      </div>
+    </section>
+
+
+      <section class="address_container">
+      <div class="address">
+        <div class="dropdown_wrapper">
+          <div class="dropdown_text"><p>Москва</p></div>
+          <!-- <div class="line_text"> -->
+          <!-- <div class="dropdown_line"></div> -->
+          <!-- </div> -->
+          <div class="btn_wrapper">
+            <i class="fa-solid fa-angle-down fa-2x"></i>
+          </div>
+        </div>
+          <ul class="dropdown_content">
+          {% for ad in address %}
+          <div class="dropdown_container">
+            <li class="dropdown_address">
+              <p>{{ ad.city }}, {{ ad.address }}</p>
+              {% if ad.metro_station %}
+              <p>{{ ad.metro_station }}</p>
+              {% endif %}
+              <p>{{ ad.schedule }}</p>
+              <p>{{ ad.number }}</p>
+              <div class="social">
+                {% if ad.telegram %}
+                <a href= {{ ad.telegram }}>
+                  <i class="fa-brands fa-telegram fa-2x"></i>
+                </a>
+                {% endif %}
+                {% if ad.inst %}
+                <a href= {{ ad.inst }}>
+                  <i class="fa-brands fa-instagram fa-2x"></i>
+                </a>
+                {% endif %}
+                {% if ad.vk %}
+                <a href= {{ ad.vk }}>
+                  <i class="fa-brands fa-vk fa-2x"></i>
+                </a>
+                {% endif %}
+              </div>
+              </li>
+              <button class="btn">Записаться</button>
+              </div>
+          {% endfor %}
+        </ul>
+        <div class="long"></div>
       </div>
     </section>
   </body>
