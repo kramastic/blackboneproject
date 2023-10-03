@@ -5,9 +5,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Барбершоп Москва - мужская парикмахерская</title>
+    <title>BLACK BONE</title>
     <link rel="stylesheet" href="{% static 'mainapp/css/gallery.css' %}"/>
     <link rel="stylesheet" href="{% static 'mainapp/css/main.css' %}"/>
+    <link rel="stylesheet" href="{% static 'mainapp/css/address.css' %}"/>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -25,12 +26,12 @@
       <div class="header_container">
         <div class="header_img">
           <!-- <div class="header_skull"></div> -->
-          <img src="{% static 'mainapp/images/black_bone_logo_skull.png' %}" alt="" >
-          <img src="{% static 'mainapp/images/black_bone_sign.svg' %}" alt="" >
+          <img src="{% static 'mainapp/images/black_bone_logo_skull.png' %}" alt="" />
+          <img src="{% static 'mainapp/images/black_bone_sign.svg' %}" alt="" />
         </div>
         <div class="header_appointment">
           <a href="http://google.com">
-            <img src="{% static 'mainapp/images/bone_call.svg' %}" alt="" />
+            <img src="{% static 'mainapp/images/bone_call.svg' %}" class="img_scale" alt="" />
           </a>
         </div>
       </div>
@@ -70,12 +71,12 @@
           <img src="{% static 'mainapp/images/beard.png' %}" alt="" />
           <div class="telegram_text">
             <p>
-              Подписывайтесь на наш <a href="http://telegram.com">Телеграм</a> канал,
-              там бесплатные стрижки и подарки
+              Подписывайтесь на наш канал в <a href="http://telegram.com">telegram</a>.
+              Там бесплатные стрижки и подарки!
             </p>
           </div>
         </div>
-        <div class="heshtag_text">
+        <div class="hashtag_text">
           <p>
             Мы устали от сумасшедших цен на МУЖСКИЕ стрижки и решили сделать эту
             услугу более доступной, вместе с тем, не теряя качество сервиса и
@@ -84,8 +85,8 @@
             или выплеснуть долю тестостерона на боксерской груше. Приходи к нам
             и почувствуй Черную Кость!
           </p>
+          <p class="blackhash">#BLACKBONE</p>
         </div>
-        <p class="blackhash">#BLACKBONE</p>
       </div>
     </section>
     <section class="gallery">
@@ -104,6 +105,9 @@
           <div class="img6 card"></div>
         </div>
       </div>
+      <div id="lightbox" class="hidden">
+        <div id="lightbox_image" class="lightbox_i"></div>
+      </div>
       <div class="swipers">
         <button class="button_right">
           <i class="fa-solid fa-right-long"></i>
@@ -118,53 +122,169 @@
         <div class="point" data-status="unknown" data-index="2"></div>
       </div>
     </section>
-
-
-      <section class="address_container">
+    <section class="address_container" id="address">
       <div class="address">
         <div class="dropdown_wrapper">
           <div class="dropdown_text"><p>Москва</p></div>
-          <!-- <div class="line_text"> -->
-          <!-- <div class="dropdown_line"></div> -->
-          <!-- </div> -->
           <div class="btn_wrapper">
             <i class="fa-solid fa-angle-down fa-2x"></i>
           </div>
         </div>
-          <ul class="dropdown_content">
-          {% for ad in address %}
+        <ul class="dropdown_content">
           <div class="dropdown_container">
             <li class="dropdown_address">
-              <p>{{ ad.city }}, {{ ad.address }}</p>
-              {% if ad.metro_station %}
-              <p>{{ ad.metro_station }}</p>
-              {% endif %}
-              <p>{{ ad.schedule }}</p>
-              <p>{{ ad.number }}</p>
+              <p>Москва, ул. Михайлова, 30А, корп.4</p>
+              <p>м.Окская</p>
+              <p>Каждый день, 10:00 - 22:00</p>
+              <p>+7 936 155-11-55</p>
               <div class="social">
-                {% if ad.telegram %}
-                <a href= {{ ad.telegram }}>
+                <a href="https://web.telegram.org/" target="_blank">
                   <i class="fa-brands fa-telegram fa-2x"></i>
                 </a>
-                {% endif %}
-                {% if ad.inst %}
-                <a href= {{ ad.inst }}>
+                <a href="https://www.instagram.com/" target="_blank">
                   <i class="fa-brands fa-instagram fa-2x"></i>
                 </a>
-                {% endif %}
-                {% if ad.vk %}
-                <a href= {{ ad.vk }}>
+                <a href="https://vk.com/" target="_blank">
                   <i class="fa-brands fa-vk fa-2x"></i>
                 </a>
-                {% endif %}
               </div>
-              </li>
-              <button class="btn">Записаться</button>
+            </li>
+            <button class="btn">Записаться</button>
+          </div>
+          <div class="dropdown_container">
+            <li class="dropdown_address">
+              <p>Квартал №100, 1к1</p>
+              <p>Каждый день, 10:00 - 22:00</p>
+              <p>+7 993 280-08-88</p>
+              <div class="social">
+                <a href="https://web.telegram.org/" target="_blank">
+                  <i class="fa-brands fa-telegram fa-2x"></i>
+                </a>
+                <a href="https://www.instagram.com/" target="_blank">
+                  <i class="fa-brands fa-instagram fa-2x"></i>
+                </a>
+                <a href="https://vk.com/" target="_blank">
+                  <i class="fa-brands fa-vk fa-2x"></i>
+                </a>
               </div>
-          {% endfor %}
+            </li>
+            <button class="btn">Записаться</button>
+          </div>
+        </ul>
+        <div class="long"></div>
+      </div>
+      <div class="address">
+        <div class="dropdown_wrapper">
+          <div class="dropdown_text"><p>Балашиха</p></div>
+          <div class="btn_wrapper">
+            <i class="fa-solid fa-angle-down fa-2x"></i>
+          </div>
+        </div>
+        <ul class="dropdown_content">
+          <div class="dropdown_container">
+            <li class="dropdown_address">
+              <p>Балашиха, ул. Реутовская, 30А, корп.4</p>
+              <p>Каждый день, 10:00 - 22:00</p>
+              <p>+7 936 155-11-55</p>
+              <div class="social">
+                <a href="https://web.telegram.org/" target="_blank">
+                  <i class="fa-brands fa-telegram fa-2x"></i>
+                </a>
+                <a href="https://www.instagram.com/" target="_blank">
+                  <i class="fa-brands fa-instagram fa-2x"></i>
+                </a>
+                <a href="https://vk.com/" target="_blank">
+                  <i class="fa-brands fa-vk fa-2x"></i>
+                </a>
+              </div>
+            </li>
+            <button class="btn">Записаться</button>
+          </div>
+          <div class="dropdown_container">
+            <li class="dropdown_address">
+              <p>Балашиха, мкрн. Новое Павлино, Косинское шоссе, 10</p>
+              <p>Каждый день, 10:00 - 22:00</p>
+              <p>+7 936 155-11-55</p>
+              <div class="social">
+                <a href="https://web.telegram.org/" target="_blank">
+                  <i class="fa-brands fa-telegram fa-2x"></i>
+                </a>
+                <a href="https://www.instagram.com/" target="_blank">
+                  <i class="fa-brands fa-instagram fa-2x"></i>
+                </a>
+                <a href="https://vk.com/" target="_blank">
+                  <i class="fa-brands fa-vk fa-2x"></i>
+                </a>
+              </div>
+            </li>
+            <button class="btn">Записаться</button>
+          </div>
+        </ul>
+        <div class="long"></div>
+      </div>
+      <div class="address">
+        <div class="dropdown_wrapper">
+          <div class="dropdown_text"><p>Бутово Парк</p></div>
+          <div class="btn_wrapper">
+            <i class="fa-solid fa-angle-down fa-2x"></i>
+          </div>
+        </div>
+        <ul class="dropdown_content">
+          <div class="dropdown_container">
+            <li class="dropdown_address">
+              <p>Рабочий поселок Дрожжино, ул.Южная, 11к3</p>
+              <p>Каждый день, 10:00 - 22:00</p>
+              <p>+7 936 155-11-55</p>
+              <div class="social">
+                <a href="https://web.telegram.org/" target="_blank">
+                  <i class="fa-brands fa-telegram fa-2x"></i>
+                </a>
+                <a href="https://www.instagram.com/" target="_blank">
+                  <i class="fa-brands fa-instagram fa-2x"></i>
+                </a>
+                <a href="https://vk.com/" target="_blank">
+                  <i class="fa-brands fa-vk fa-2x"></i>
+                </a>
+              </div>
+            </li>
+            <button class="btn">Записаться</button>
+          </div>
         </ul>
         <div class="long"></div>
       </div>
     </section>
+    <section class="shop">
+      <div class="shop_container">
+        <h2>Магазин Товаров Для Мужчин</h2>
+        <p>
+          Представляем вашему вниманию широкий ассортимент косметики по уходу за
+          волосами, усами, бородой и телом, которая поможет создать вам
+          неповторимый образ и безукоризненный стиль
+        </p>
+        <button class="btn">Перейти в магазин</button>
+      </div>
+    </section>
+    <footer>
+      <div class="footer_button">
+        <a class="btn" href="#adress">Адреса</a>
+        <a href="#pricelist_btn" class="btn"> Онлайн-Запись</a>
+        <a href="#franchise" class="btn">Франшиза</a>
+      </div>
+      <div class="footer_social">
+        <div class="social_icons">
+          <a href="https://vk.com/" target="_blank">
+            <i class="fa-brands fa-vk fa-2x"></i>
+          </a>
+          <a href="https://web.telegram.org/" target="_blank">
+            <i class="fa-brands fa-telegram fa-2x"></i>
+          </a>
+        </div>
+        <div class="social_text">
+          <p>ИП Михаилян А.А.</p>
+          <p>ОРГН 31677460000000</p>
+          <p>ИНН 77208563000000</p>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

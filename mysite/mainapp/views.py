@@ -1,18 +1,14 @@
 from django.shortcuts import render
 import telepot
-from .models import *
-from .forms import*
+from .forms import *
+
 
 def mainpage(request):
     services = Services.objects.all()
-    address = Branchoffice.objects.all()
-    city = City.objects.all()
     form = AppointmentForm()
 
     context = {
         'services': services,
-        'address': address,
-        'city': city,
         'form': form,
     }
 
@@ -25,6 +21,6 @@ def mainpage(request):
             number = form1.cleaned_data['number']
             message = f'Имя: {name} \nНомер телефона: {number}'
         Bot.sendMessage(685875132, message)
-        context ['success'] =  'Ваша заявка отправлена'
+        context['success'] = 'Ваша заявка отправлена'
 
     return render(request, 'mainapp/index.html', context=context)
