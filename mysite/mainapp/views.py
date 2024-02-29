@@ -13,7 +13,7 @@ def mainpage(request):
     }
 
     if request.method == 'POST':
-        token = '6439290351:AAFhjBfP7aoWqSOTUF1r0RSsiFQ_HJwgd1c'
+        token = 'XXX' 
         Bot = telepot.Bot(token)
         form1 = AppointmentForm(request.POST)
         if form1.is_valid():
